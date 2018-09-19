@@ -1,5 +1,7 @@
 @import 'reset';
 @import 'vars';
+@import 'layout';
+@import 'first-page';
 
 html {
   box-sizing: border-box;

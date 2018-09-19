@@ -1,0 +1,13 @@
+.name {
+  font-family: 'PlayfairDisplay Regular';
+  font-size: 2rem;
+  color: var(--color-white);
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  padding: 2rem;
+}
+
+.anim {
+  width: 40%;
+}

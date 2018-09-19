@@ -1,7 +1,6 @@
 :root {
-  --color-white: #f9f5f1;
-  --color-bg: var(--color-white);
-  --color-black: #404040;
+  --color-white: #fff;
+  --color-black: #000;
   --color-blue: #a5c3d0;
   --color-green-text: #84ab7b;
   --color-green: #bdd2b9;
