@@ -55,7 +55,7 @@ const commonConfig = merge([
                 },
                 // optipng.enabled: false will disable optipng
                 optipng: {
-                  enabled: false,
+                  enabled: true,
                 },
                 pngquant: {
                   quality: '65-90',
@@ -69,7 +69,7 @@ const commonConfig = merge([
           ]
         },
         {
-          test: /\.(jsx?)$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: [
             {
@@ -89,7 +89,11 @@ const commonConfig = merge([
       new HtmlWebpackPlugin({
         template: "./src/index.html"
       })
-    ]
+    ],
+    resolve: {
+    // import files without extension import ... from './Test'
+    extensions: [`.js`, `.jsx`, `.css`]
+  },
   }
 ]);
 
