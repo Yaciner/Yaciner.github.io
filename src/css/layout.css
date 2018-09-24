@@ -25,3 +25,12 @@
    transform: translate(-50%, -50%);
    margin: 0 auto;
 }
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.hide {
+  visibility: hidden;
+}
