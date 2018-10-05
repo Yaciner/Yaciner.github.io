@@ -4,6 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
+
 const CriticalPlugin = require('webpack-plugin-critical').CriticalPlugin;
 
 const merge = require("webpack-merge");
@@ -16,7 +19,7 @@ const PATHS = {
   dist: path.join(__dirname, "dist")
 };
 
-const commonConfig = merge([
+const commonConfig = smp.wrap(merge([
   {
     entry: [path.join(PATHS.src, "css/style.css"), path.join(PATHS.src, "js/script.js")],
     output: {
@@ -95,7 +98,7 @@ const commonConfig = merge([
     extensions: [`.js`, `.jsx`, `.css`]
   },
   }
-]);
+]));
 
 const productionConfig = merge([
   parts.extractCSS(),
@@ -121,7 +124,8 @@ const developmentConfig = merge([
   {
     devServer: {
       overlay: true,
-      contentBase: PATHS.src
+      contentBase: PATHS.src,
+      historyApiFallback: true
     }
   },
   parts.loadCSS(),

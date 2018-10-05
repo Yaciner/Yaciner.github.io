@@ -11,7 +11,7 @@
   position: absolute;
   width: 86vw;
   height: 82vh;
-  border: 1px solid rgba(220,220,220, .6);
+  border: .1rem solid rgba(220,220,220, .6);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -23,13 +23,13 @@
   height: 8rem;
   display: flex;
   justify-content: center;
-  margin-bottom: -56px;
+  margin-bottom: -5.6rem;
 }
 
 .work-frame__button-p {
   width: 16rem;
   height: 5rem;
-  border: 1px solid rgba(220,220,220);
+  border: .1rem solid rgba(220,220,220);
   text-align: center;
   display: flex;
   justify-content: center;
@@ -41,13 +41,13 @@
 .work-frame__indicator {
   width: 6rem;
   height: 6rem;
-  border: 1px solid rgba(220,220,220, .6);
+  border: .1rem solid rgba(220,220,220, .6);
   transform: rotate(45deg);
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color-white);
-  left: -100px;
+  left: -10rem;
 }
 
 .work-frame__indicator-p {
@@ -58,8 +58,8 @@
   transform: rotate(-45deg);
   display: flex;
   justify-content: center;
-  margin-top: -3px;
-  margin-left: -3px;
+  margin-top: -.3rem;
+  margin-left: -.3rem;
 }
 
 
@@ -103,4 +103,34 @@
   font-size: 1.7rem;
   color: var(--color-gray);
   line-height: 160%;
+}
+
+.content-summary__image {
+  background-color: none;
+  position: absolute;
+  right: 0;
+  margin-top: -15vh;
+  z-index: 0;
+}
+
+.content-summary__image img {
+  width: 85rem;
+}
+
+.page-work__back {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  font-size: 2rem;
+  font-family: 'PTSerif Bold';
+  color: var(--color-black-alt);
+  top: 5rem;
+  width: 20rem;
+}
+
+.page-work__back_arrow {
+  width: 5rem;
+  height: auto;
 }

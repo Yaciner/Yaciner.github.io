@@ -21,14 +21,14 @@
   color: white;
   position: fixed;
    left: 50%;
-   bottom: 20px;
+   bottom: 2rem;
    transform: translate(-50%, -50%);
    margin: 0 auto;
 }
 
 a {
   text-decoration: none;
-  color: var(--color-black);
+  color: inherit;
 }
 
 .hide {

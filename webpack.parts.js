@@ -13,7 +13,7 @@ exports.extractCSS = () => {
             test: /\.css$/,
             use: extractCSS.extract({
               use: [ `css-loader`, 'postcss-loader'],
-              publicPath: '../'
+              publicPath: '/'
             })
           }
         ]

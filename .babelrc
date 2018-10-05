@@ -20,15 +20,6 @@
         "transform-react-jsx-source",
         "transform-react-stateless-component-name"
       ]
-    },
-
-
-
-    "production": {
-      "plugins": [
-        "lodash",
-        "transform-react-remove-prop-types"
-      ]
     }
 }
 }
