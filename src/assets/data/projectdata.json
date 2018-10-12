@@ -1,11 +1,55 @@
-{
-   "Vertigo": {
-      "name": "vertigo",
-      "role": "",
-      "agency": "",
-      "year": "",
-      "maintitle": "Tribute to Christopher Nolan",
-      "skills": "Web/Responsive/ux",
-      "target": "The aim of this project is to design an app that use gamification to stimulate users to “learn by playing”. Users can complete a real mission on site to continue in the game, to level up and to gain Sherds the currency that can be exchanged with virtual or real benefits (such as bookshop discounts, Amazon gift cards, etc.)."
-   }
-}
+[
+  {
+    "name": "vertigo",
+    "role": "Design Development",
+    "agency": "Devine (Vertigo)",
+    "summary": "In this assignment we were asked to make a tribute to Christopher Nolan’s best movies.",
+    "year": "2017",
+    "maintitle": "Tribute to Christopher Nolan",
+    "skills": "Web / Responsive / ux",
+    "target": {
+        "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
+        "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
+      }
+  },
+  {
+    "name": "babeleir",
+    "role": "Design Development",
+    "agency": "Devine (Brussels Beer Project)",
+    "summary": "Turned McDonald’s Netherlands app into a rich, personalised user experience. Enabling rewards, loyalty and geo-targeted offers with fun UI animations. With great team effort we managed to design and develop this app within 2-3 months.",
+    "year": "2016",
+    "maintitle": "Babeleir De Bretagne",
+    "skills": "Web/ux",
+    "target": {
+        "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
+        "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
+      }
+  },
+  {
+    "name": "other",
+    "role": "Design Development",
+    "agency": "Devine (Brussels Beer Project)",
+    "summary": "Turned McDonald’s Netherlands app into a rich, personalised user experience. Enabling rewards, loyalty and geo-targeted offers with fun UI animations. With great team effort we managed to design and develop this app within 2-3 months.",
+    "year": "2016",
+    "maintitle": "Babeleir De Bretagne",
+    "skills": "Web/ux",
+    "target": {
+        "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
+        "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
+      }
+  },
+  {
+    "name": "and another",
+    "role": "Design Development",
+    "agency": "Devine (Brussels Beer Project)",
+    "summary": "Turned McDonald’s Netherlands app into a rich, personalised user experience. Enabling rewards, loyalty and geo-targeted offers with fun UI animations. With great team effort we managed to design and develop this app within 2-3 months.",
+    "year": "2016",
+    "maintitle": "Babeleir De Bretagne",
+    "skills": "Web/ux",
+    "target": {
+        "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
+        "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
+      }
+  }
+
+]

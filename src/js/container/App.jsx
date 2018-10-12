@@ -5,10 +5,6 @@ import Work from '../components/Work';
 import Detail from '../components/WorkDetail';
 
 class App extends Component {
-  componentDidMount() {
-
-  }
-
 
   renderHome = () => {
     return <Home />;
@@ -18,21 +14,23 @@ class App extends Component {
     return <Detail />;
   }
 
-  renderWork = () => {
-    return <Work />;
+  renderDetailMetId = ({match}) => {
+    console.log('what is going on');
+    const {_id} = match.params;
+    return <Detail _id={_id} />;
+    // <div> <RequestDetail _id={_id} /></div>
   }
 
   render() {
     return (
       <Router>
-        <div>
         <Switch>
           <Route exact path='/' render={this.renderHome} />
-          <Route exact path='/work' render={this.renderWork} />
-          <Route exact path='/workdetail' render={this.renderDetail} />
+          <Route exact path='/work' component={Work} />
+          {/* <Route exact path='/workdetail' render={this.renderDetail} /> */}
+          <Route exact path='/workdetail:_id' render={this.renderDetailMetId} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
-        </div>
       </Router>
     );
   }

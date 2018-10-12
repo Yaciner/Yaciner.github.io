@@ -6,6 +6,7 @@
   width: 100vw;
   text-align: center;
   padding: 2rem;
+  z-index: 9999;
 }
 
 
@@ -20,10 +21,10 @@
   font-family: 'Roboto Regular';
   color: white;
   position: fixed;
-   left: 50%;
-   bottom: 2rem;
-   transform: translate(-50%, -50%);
-   margin: 0 auto;
+  left: 50%;
+  bottom: 2rem;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
 }
 
 a {
