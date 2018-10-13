@@ -19,11 +19,6 @@ class Work extends Component {
       data: null,
       case: 0
     };
-    this.onChange = this.onChange.bind(this)
-  }
-
-  onChange(state) {
-   this.setState(state);
   }
 
   componentDidMount() {
@@ -36,6 +31,7 @@ class Work extends Component {
       .then(this.checkStatus)
       .then(response => response.json())
       .then(data => this.setState({data}));
+
     workPage();
     bodymovin.loadAnimation({
        container: document.querySelector(`.drawline`),
@@ -66,7 +62,12 @@ class Work extends Component {
 
     if(lethargy.check(e) === -1) {
       console.log('down?');
-      this.setState({case: this.state.case + 1});
+      console.log(this.state.case, this.state.data.length);
+
+      if (this.state.case <= this.state.data.length) {
+        
+        this.setState({case: this.state.case + 1});
+      }
       workPage();
       !1 === lethargy.check(e);
       console.log(lethargy.check(e));
@@ -91,7 +92,7 @@ class Work extends Component {
   // };
 
   render() {
-    let project = this.state.data;
+      let project = this.state.data;
       return (
         <div className="home">
         <div>
