@@ -13,19 +13,19 @@ let quotient = -1;
 let timeOut = null;
 
 class Work extends Component {
+  state = {
+    data: null,
+    case: 0,
+    scrolled: false
+  }
+
   constructor(props) {
     super(props);
-    this.state = {
-      data: null,
-      case: 0,
-      prevCase: null,
-      scrolled: false
-    };
-
     if (timeOut) clearTimeout(timeOut);
   }
 
   componentDidMount() {
+
     fetch('./assets/data/projectdata.json', {
       headers : {
        'Content-Type': 'application/json',
@@ -48,6 +48,9 @@ class Work extends Component {
     document.addEventListener("wheel", this.scrollEvent),
     document.addEventListener("mousewheel", this.scrollEvent),
     document.addEventListener("DOMMouseScroll", this.scrollEvent)
+
+    const selectedOption = localStorage.getItem('currentCase') || 0;
+    if (selectedOption !== 'NaN') this.setState({case: parseInt(selectedOption) })
   };
 
   componentWillUnmount() {
@@ -55,6 +58,7 @@ class Work extends Component {
     document.removeEventListener('mousewheel', this.scrollEvent);
     document.removeEventListener('DOMMouseScroll', this.scrollEvent);
     if (timeOut !== null) clearTimeout(timeOut);
+    localStorage.setItem('currentCase', this.state.case);
   };
 
   scrollEvent = e => {
