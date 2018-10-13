@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import {workPage} from '../../lib/animateElements';
 import bodymovin from 'lottie-web';
-import {Lethargy} from 'lethargy';
-let lethargy = new Lethargy(1, 500, 0.05);
 // let scrollPos = 0;
 let supportsWheel = !1;
 let animEnCours = !1
@@ -23,6 +21,8 @@ class Work extends Component {
       prevCase: null,
       scrolled: false
     };
+
+    if (timeOut) clearTimeout(timeOut);
   }
 
   componentDidMount() {
@@ -48,18 +48,18 @@ class Work extends Component {
     document.addEventListener("wheel", this.scrollEvent),
     document.addEventListener("mousewheel", this.scrollEvent),
     document.addEventListener("DOMMouseScroll", this.scrollEvent)
-
-    window.onscroll = function(e) {
-      // print "false" if direction is down and "true" if up
-      
-    }
   };
 
   componentWillUnmount() {
-    // window.removeEventListener('scroll', this.scrollEvent);
+    document.removeEventListener('wheel', this.scrollEvent);
+    document.removeEventListener('mousewheel', this.scrollEvent);
+    document.removeEventListener('DOMMouseScroll', this.scrollEvent);
+    if (timeOut !== null) clearTimeout(timeOut);
   };
 
-  scrollEvent = (e) => {
+  scrollEvent = e => {
+    console.log("scrollEvent");
+    
     let { scrolled } = this.state;
     
     if ("wheel" === e.type) supportsWheel = !0;
@@ -68,10 +68,7 @@ class Work extends Component {
     delta = e.deltaY || -e.wheelDelta || e.detail || 1;
     e.preventDefault();
     e.stopPropagation();
-
-    // console.log(delta);
-    
-
+  
     if (!scrolled) {
       if (delta >= 0) {
         if (this.state.case !== this.state.data.length) {
@@ -97,22 +94,13 @@ class Work extends Component {
 		if (!response.ok) throw Error(response.statusText);
     return response;
 	};
-  //
-  // handleScroll(e) {
-  //   console.log(e);
-  //   // this.setState({case: this.state.case + 1 });
-  // };
 
   render() {
-    // console.log(this.state.case);
-    if (this.state.scrolled) {
-      timeOut = setTimeout(() => this.setState({ scrolled: false }), 2000);
-    }
+    let project = this.state.data;
+    if (this.state.scrolled) timeOut = setTimeout(() => this.setState({ scrolled: false }), 2000);
 
-
-      let project = this.state.data;
-      return (
-        <div className="home">
+    return (
+      <div className="home">
         <div>
           <p className="status"></p>
         </div>
@@ -195,7 +183,7 @@ class Work extends Component {
               </div>
               <div className="work-frame__button">
                 <p className="work-frame__button-p">
-                  <Link to={`/workdetail${this.state.case}`}>view case</Link>
+                  <Link to={`/workdetail/${this.state.case}`}>view case</Link>
                   {/* <Link to={'/ideas/'+this.props.testvalue }>Create Idea</Link>
                   {`/request/${_id}`} */}
                 </p>
@@ -203,8 +191,8 @@ class Work extends Component {
             </section>
           </section>
         </main>
-        </div>
-      );
+      </div>
+    );
     // }
   };
 };

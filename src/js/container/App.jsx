@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import Home from '../components/Homepage';
 import Work from '../components/Work';
 import Detail from '../components/WorkDetail';
@@ -10,9 +10,9 @@ class App extends Component {
     return <Home />;
   }
 
-  renderDetail = () => {
-    return <Detail />;
-  }
+  // renderDetail = () => {
+  //   return <Detail />;
+  // }
 
   renderDetailMetId = ({match}) => {
     console.log('what is going on');
@@ -28,7 +28,7 @@ class App extends Component {
           <Route exact path='/' render={this.renderHome} />
           <Route exact path='/work' component={Work} />
           {/* <Route exact path='/workdetail' render={this.renderDetail} /> */}
-          <Route exact path='/workdetail:_id' render={this.renderDetailMetId} />
+          <Route exact path='/workdetail/:_id' render={this.renderDetailMetId} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
       </Router>

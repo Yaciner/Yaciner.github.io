@@ -24,9 +24,11 @@ const commonConfig = smp.wrap(merge([
     entry: [path.join(PATHS.src, "css/style.css"), path.join(PATHS.src, "js/script.js")],
     output: {
       path: PATHS.dist,
-      filename: `js/script.[hash].js`
+      filename: `js/script.[hash].js`,
+      publicPath: `/`
     },
     devtool: 'source-map',
+
     module: {
       rules: [
         {

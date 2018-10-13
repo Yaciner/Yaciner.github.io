@@ -43,31 +43,23 @@ export default class WorkDetail extends Component {
   }
 
   componentDidMount() {
-    fetch('./assets/data/projectdata.json', {
-      headers : {
-       'Content-Type': 'application/json',
-       'Accept': 'application/json'
-      }
-    })
-      .then(response => response.json())
-      .then(results => {
-        // setTimeout(function () {
+    if (!this.state.project) {
+      fetch('./assets/data/projectdata.json', {
+        headers : {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(results => {
 
-        //   if(results.length === 4) {
-        //     console.log('run function');
-        //     this.setState({ project: results})
-            
-        //   }
-        //  }, 2000) // AFTER 2 SECONDS IT WILL RETURN
-
-        this.setState({
-          project: results
-        });
-
-      }).catch((e => this.setState({ error: e })));
-
+          this.setState({
+            project: results
+          });
+  
+        }).catch((e => this.setState({ error: e })));
+    }
   }
-
 
   render() {
     const { error, project } = this.state;
@@ -75,7 +67,6 @@ export default class WorkDetail extends Component {
 
     if (error) return <h1>An error occured</h1>
     if (!project) return <h1>loading</h1>
-
 
     return (
       <div className="home">
