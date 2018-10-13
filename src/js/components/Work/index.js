@@ -12,12 +12,16 @@ let current = 0;
 let sens = !0;
 let quotient = -1;
 
+let timeOut = null;
+
 class Work extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: null,
-      case: 0
+      case: 0,
+      prevCase: null,
+      scrolled: false
     };
   }
 
@@ -44,44 +48,52 @@ class Work extends Component {
     document.addEventListener("wheel", this.scrollEvent),
     document.addEventListener("mousewheel", this.scrollEvent),
     document.addEventListener("DOMMouseScroll", this.scrollEvent)
+
+    window.onscroll = function(e) {
+      // print "false" if direction is down and "true" if up
+      
+    }
   };
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.scrollEvent);
+    // window.removeEventListener('scroll', this.scrollEvent);
   };
 
   scrollEvent = (e) => {
-    if ("wheel" === e.type)
-      supportsWheel = !0;
-    else if (supportsWheel)
-        return;
+    let { scrolled } = this.state;
+    
+    if ("wheel" === e.type) supportsWheel = !0;
+    else if (supportsWheel) return;
 
     delta = e.deltaY || -e.wheelDelta || e.detail || 1;
     e.preventDefault();
     e.stopPropagation();
 
-    if(lethargy.check(e) === -1) {
-      console.log('down?');
-      console.log(this.state.case, this.state.data.length);
+    // console.log(delta);
+    
 
-      if (this.state.case <= this.state.data.length) {
-        
-        this.setState({case: this.state.case + 1});
+    if (!scrolled) {
+      if (delta >= 0) {
+        if (this.state.case !== this.state.data.length) {
+          if (this.state.case + 1 <= this.state.data.length - 1) {
+            this.setState({ case: this.state.case + 1 });
+            workPage();
+          }
+        }
+      } else {
+        if (this.state.case - 1 >= 0) {
+          this.setState({case: this.state.case - 1});
+          workPage();
+        }
       }
-      workPage();
-      !1 === lethargy.check(e);
-      console.log(lethargy.check(e));
-    }
-    if(lethargy.check(e) === 1) {
-        console.log('up?');
-        this.setState({case: this.state.case - 1});
-        workPage();
-        !1 === lethargy.check(e);
-        console.log(lethargy.check(e));
+
+      if (timeOut !== null) clearTimeout(timeOut);
+      this.setState({ scrolled: true })      
     }
   }
 
-	 checkStatus = (response) => {
+
+	checkStatus = (response) => {
 		if (!response.ok) throw Error(response.statusText);
     return response;
 	};
@@ -92,6 +104,12 @@ class Work extends Component {
   // };
 
   render() {
+    // console.log(this.state.case);
+    if (this.state.scrolled) {
+      timeOut = setTimeout(() => this.setState({ scrolled: false }), 2000);
+    }
+
+
       let project = this.state.data;
       return (
         <div className="home">
@@ -171,7 +189,7 @@ class Work extends Component {
                   /
                   </span>
                   <span className="total">
-                  { this.state.data ? this.state.data.length + 1 : 0 }
+                  { this.state.data ? this.state.data.length : 0 }
                   </span>
                 </p>
               </div>
@@ -188,7 +206,7 @@ class Work extends Component {
         </div>
       );
     // }
-};
+  };
 };
 
 

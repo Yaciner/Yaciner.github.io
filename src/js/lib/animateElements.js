@@ -4,6 +4,7 @@ export function workPage() {
       const $slidesUpTitle = document.querySelector(`.content-title`);
       const $slidesUpSummary = document.querySelector(`.content-summary__text`)
       const $slidesRightImage = document.querySelector(`.content-summary__image`);
+      
       Anims($slidesUpTitle, `transition.slideUpIn`, 800, 100, "ease-out");
       Anims($slidesUpSummary, `transition.slideUpIn`, 1600, 700, "easeInSine");
       Anims($slidesRightImage, `transition.slideRightIn`, 1200, 300, "easeOutQuad");
