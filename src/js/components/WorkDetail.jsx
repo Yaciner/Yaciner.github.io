@@ -90,11 +90,10 @@ export default class WorkDetail extends Component {
       <main>
         <section className="page-work" id="page-work">
           <section className="page-work__content">
-            <Link to="/work">
-              <div className="page-work__back">
-                <img className="page-work__back_arrow" src="./assets/svg/arrow.svg" alt="arrow" />
-                <p>Back to cases</p>
-              </div>
+            <Link className="page-work__back" to="/work">
+              <img className="page-work__back_arrow" src="./assets/svg/arrow.svg" alt="arrow" />
+             <p>Back to cases</p>
+ 
             </Link>
             <div className="content-title__frame">
               <h1 className="content-title">
