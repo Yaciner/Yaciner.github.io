@@ -10,7 +10,12 @@
     "target": {
         "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
         "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
-      }
+      },
+    "fonts": {
+      "name": "ProximaNova",
+      "heading": "Proxima Nova Alt - Bold",
+      "body": "Proxima Nova Alt - Regular"
+    }
   },
   {
     "name": "babeleir",

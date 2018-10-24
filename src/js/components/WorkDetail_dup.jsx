@@ -24,7 +24,7 @@ class WorkDetail extends Component {
       .then(data => this.setState({data}));
 
       bodymovin.loadAnimation({
-         container: document.querySelector(`.drawline`),
+         container: document.querySelector(`.next-animation`),
          renderer: `svg`,
          loop: false,
          autoplay: true,

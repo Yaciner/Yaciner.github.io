@@ -47,7 +47,13 @@ class Work extends Component {
     document.querySelector(`.name`).style.color = '#3B3B3B';
     document.addEventListener("wheel", this.scrollEvent),
     document.addEventListener("mousewheel", this.scrollEvent),
-    document.addEventListener("DOMMouseScroll", this.scrollEvent)
+    document.addEventListener("DOMMouseScroll", this.scrollEvent),
+    document.addEventListener('keydown', (event) => {
+      const keyName = event.key;
+      if(keyName==='ArrowDown') this.keyDown()
+      if(keyName==='ArrowUp') this.keyUp()
+    })
+
 
     const selectedOption = localStorage.getItem('currentCase') || 0;
     if (selectedOption !== 'NaN') this.setState({case: parseInt(selectedOption) })
@@ -61,18 +67,35 @@ class Work extends Component {
     localStorage.setItem('currentCase', this.state.case);
   };
 
+  keyDown = () => {
+    console.log('keydown detected');
+    if (this.state.case !== this.state.data.length) {
+      if (this.state.case + 1 <= this.state.data.length - 1) {
+        this.setState({ case: this.state.case + 1 });
+        workPage();
+      }
+    }
+  }
+
+  keyUp = () => {
+    if (this.state.case - 1 >= 0) {
+      this.setState({case: this.state.case - 1});
+      workPage();
+    }
+  }
+
   scrollEvent = e => {
     console.log("scrollEvent");
-    
+
     let { scrolled } = this.state;
-    
+
     if ("wheel" === e.type) supportsWheel = !0;
     else if (supportsWheel) return;
 
     delta = e.deltaY || -e.wheelDelta || e.detail || 1;
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
-  
+
     if (!scrolled) {
       if (delta >= 0) {
         if (this.state.case !== this.state.data.length) {
@@ -89,7 +112,7 @@ class Work extends Component {
       }
 
       if (timeOut !== null) clearTimeout(timeOut);
-      this.setState({ scrolled: true })      
+      this.setState({ scrolled: true })
     }
   }
 

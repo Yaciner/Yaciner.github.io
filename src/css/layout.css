@@ -35,3 +35,15 @@ a {
 .hide {
   visibility: hidden;
 }
+
+.ProximaNovabold {
+  font-family: 'ProximaNova Bold';
+  font-size: 20rem;
+  border-bottom: .2rem solid var(--color-white);
+}
+
+.ProximaNovaregular {
+  font-size: 20rem;
+  font-family: 'ProximaNova Regular';
+  border-bottom: .2rem solid var(--color-white);
+}

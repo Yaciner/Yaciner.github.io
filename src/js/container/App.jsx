@@ -15,10 +15,8 @@ class App extends Component {
   // }
 
   renderDetailMetId = ({match}) => {
-    console.log('what is going on');
     const {_id} = match.params;
     return <Detail _id={_id} />;
-    // <div> <RequestDetail _id={_id} /></div>
   }
 
   render() {
@@ -27,7 +25,6 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={this.renderHome} />
           <Route exact path='/work' component={Work} />
-          {/* <Route exact path='/workdetail' render={this.renderDetail} /> */}
           <Route exact path='/workdetail/:_id' render={this.renderDetailMetId} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>

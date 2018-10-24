@@ -210,3 +210,102 @@
 .target-info p {
   padding-bottom: 2rem;
 }
+
+.project-fonts__big {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.project-fonts__example {
+  padding-top: 5rem;
+  width: 55vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.project-fonts__big article {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-fonts {
+  width: 100%;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: 5rem 0;
+}
+
+.project-fonts__name {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.ProximaNovahead {
+  text-transform: capitalize;
+  font-family: 'ProximaNova Bold';
+  font-size: 3.6rem;
+  padding-bottom: 1rem;
+}
+
+.ProximaNovabody {
+  font-family: 'ProximaNova Regular';
+  font-size: 2rem;
+  line-height: 120%;
+}
+
+.project-next {
+  background-color: var(--color-black);
+  height: 30rem;
+}
+
+.project-next p {
+  font-family: 'PlayfairDisplay Bold';
+  font-size: 10rem;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 8rem 0;
+  z-index: 99;
+}
+
+.project-next p:hover:after {
+  transform: scaleX(1);
+}
+
+.animation-next {
+  position: absolute;
+  width: 100vw;
+  height: 10rem;
+  z-index: 1;
+}
+
+.animation-text {
+  z-index: 99;
+}
+
+.animate {
+  font-family: 'PlayfairDisplay Bold';
+  font-size: 10rem;
+  display:inline-block;
+  position: absolute;
+  margin: 0 auto;
+  text-transform: uppercase;
+  z-index: 99;
+}
+.animate:after {
+  display: block;
+  content: '';
+  border-bottom: solid 3rem var(--color-blue);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+.animate:hover:after { transform: scaleX(1); }
+.animate:after{  transform-origin:  0% 50%; }
