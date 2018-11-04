@@ -15,46 +15,62 @@
       "name": "ProximaNova",
       "heading": "Proxima Nova Alt - Bold",
       "body": "Proxima Nova Alt - Regular"
-    }
+    },
+    "site": "http://student.howest.be/yacine.redjala/20172018/ma4/vertigo/",
+    "screens": 10,
+    "responsive": true
   },
   {
     "name": "babeleir",
     "role": "Design Development",
     "agency": "Devine (Brussels Beer Project)",
-    "summary": "Turned McDonald’s Netherlands app into a rich, personalised user experience. Enabling rewards, loyalty and geo-targeted offers with fun UI animations. With great team effort we managed to design and develop this app within 2-3 months.",
-    "year": "2016",
-    "maintitle": "Babeleir De Bretagne",
-    "skills": "Web/ux",
+    "summary": "In this assignment we were asked to make a tribute to Christopher Nolan’s best movies.",
+    "year": "2017",
+    "maintitle": "Tribute to Christopher Nolan",
+    "skills": "Web / Responsive / ux",
     "target": {
         "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
         "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
+      },
+    "fonts": {
+      "name": "ProximaNova",
+      "heading": "Proxima Nova Alt - Bold",
+      "body": "Proxima Nova Alt - Regular"
+    }
+  },  {
+      "name": "vertigo",
+      "role": "Design Development",
+      "agency": "Devine (Vertigo)",
+      "summary": "In this assignment we were asked to make a tribute to Christopher Nolan’s best movies.",
+      "year": "2017",
+      "maintitle": "Tribute to Christopher Nolan",
+      "skills": "Web / Responsive / ux",
+      "target": {
+          "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
+          "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
+        },
+      "fonts": {
+        "name": "ProximaNova",
+        "heading": "Proxima Nova Alt - Bold",
+        "body": "Proxima Nova Alt - Regular"
       }
-  },
-  {
-    "name": "other",
-    "role": "Design Development",
-    "agency": "Devine (Brussels Beer Project)",
-    "summary": "Turned McDonald’s Netherlands app into a rich, personalised user experience. Enabling rewards, loyalty and geo-targeted offers with fun UI animations. With great team effort we managed to design and develop this app within 2-3 months.",
-    "year": "2016",
-    "maintitle": "Babeleir De Bretagne",
-    "skills": "Web/ux",
-    "target": {
-        "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
-        "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
+    },  {
+        "name": "vertigo",
+        "role": "Design Development",
+        "agency": "Devine (Vertigo)",
+        "summary": "In this assignment we were asked to make a tribute to Christopher Nolan’s best movies.",
+        "year": "2017",
+        "maintitle": "Tribute to Christopher Nolan",
+        "skills": "Web / Responsive / ux",
+        "target": {
+            "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
+            "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
+          },
+        "fonts": {
+          "name": "ProximaNova",
+          "heading": "Proxima Nova Alt - Bold",
+          "body": "Proxima Nova Alt - Regular"
+        }
       }
-  },
-  {
-    "name": "and another",
-    "role": "Design Development",
-    "agency": "Devine (Brussels Beer Project)",
-    "summary": "Turned McDonald’s Netherlands app into a rich, personalised user experience. Enabling rewards, loyalty and geo-targeted offers with fun UI animations. With great team effort we managed to design and develop this app within 2-3 months.",
-    "year": "2016",
-    "maintitle": "Babeleir De Bretagne",
-    "skills": "Web/ux",
-    "target": {
-        "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
-        "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
-      }
-  }
 
 ]

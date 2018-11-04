@@ -37,6 +37,7 @@ class Work extends Component {
       .then(data => this.setState({data}));
 
     workPage();
+    document.querySelector(`.content-summary__image-style`).style.transform = 'none';
     bodymovin.loadAnimation({
        container: document.querySelector(`.drawline`),
        renderer: `svg`,
@@ -44,6 +45,14 @@ class Work extends Component {
        autoplay: true,
        path: `../assets/data/line.json`
      });
+
+     bodymovin.loadAnimation({
+        container: document.querySelector(`.circles-animation`),
+        renderer: `svg`,
+        loop: false,
+        autoplay: true,
+        path: `../assets/data/circles.json`
+      });
     document.querySelector(`.name`).style.color = '#3B3B3B';
     document.addEventListener("wheel", this.scrollEvent),
     document.addEventListener("mousewheel", this.scrollEvent),
@@ -57,6 +66,7 @@ class Work extends Component {
 
     const selectedOption = localStorage.getItem('currentCase') || 0;
     if (selectedOption !== 'NaN') this.setState({case: parseInt(selectedOption) })
+    document.querySelector(`.name`).style.color = '#3B3B3B';
   };
 
   componentWillUnmount() {
@@ -73,6 +83,7 @@ class Work extends Component {
       if (this.state.case + 1 <= this.state.data.length - 1) {
         this.setState({ case: this.state.case + 1 });
         workPage();
+        document.querySelector(`.content-summary__image-style`).style.transform = 'none';
       }
     }
   }
@@ -81,6 +92,7 @@ class Work extends Component {
     if (this.state.case - 1 >= 0) {
       this.setState({case: this.state.case - 1});
       workPage();
+      document.querySelector(`.content-summary__image-style`).style.transform = 'none';
     }
   }
 
@@ -102,12 +114,14 @@ class Work extends Component {
           if (this.state.case + 1 <= this.state.data.length - 1) {
             this.setState({ case: this.state.case + 1 });
             workPage();
+            document.querySelector(`.content-summary__image-style`).style.transform = 'none';
           }
         }
       } else {
         if (this.state.case - 1 >= 0) {
           this.setState({case: this.state.case - 1});
           workPage();
+          document.querySelector(`.content-summary__image-style`).style.transform = 'none';
         }
       }
 
@@ -191,7 +205,9 @@ class Work extends Component {
                   </div>
               </div>
               <div className="content-summary__image">
-                <img src="./assets/img/vertigo.png" alt="Vertigo" />
+                <div className="circles-animation"></div>
+
+                <img className="content-summary__image-style" src={`./assets/img/${project ? project[this.state.case].name : null}.png`} alt="Vertigo" />
               </div>
             </section>
             <section className="work-frame">

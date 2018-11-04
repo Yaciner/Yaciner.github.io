@@ -26,14 +26,20 @@
 //
 // init();
 
+
+
+
 import React from 'react';
 import {render} from 'react-dom';
 import App from './container/App';
-const init = () => {
+import mouse from './lib/mouse';
 
+const init = () => {
+  console.log("You can find the code here: http://www.github.com/Yaciner/portfolio");
+  mouse();
   render(
     <App />,
-    document.querySelector(`.react-mount`)
+    document.querySelector(`.react-mount`),
   );
 
 };

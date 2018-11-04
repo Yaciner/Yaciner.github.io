@@ -10,6 +10,7 @@ export default class WorkDetail extends Component {
   }
 
   componentDidMount() {
+    document.querySelector(`.circle-mouse`).style.fill = `black`;
     if (!this.state.project) {
       fetch('./assets/data/projectdata.json', {
         headers : {
@@ -26,6 +27,13 @@ export default class WorkDetail extends Component {
 
         }).catch((e => this.setState({ error: e })));
     }
+    bodymovin.loadAnimation({
+       container: document.querySelector(`.circles-animation`),
+       renderer: `svg`,
+       loop: false,
+       autoplay: true,
+       path: `../assets/data/circles.json`
+     });
   }
 
   onHover() {
@@ -52,6 +60,27 @@ export default class WorkDetail extends Component {
        autoplay: true,
        path: `../assets/data/stroke.json`
      });
+  }
+
+  returnScreens(project, _id) {
+      let images = [];
+      if(project) {
+        for(let i = 0; i < project[_id].screens; i++ ) {
+           images.push(<img className="project-screens__image" src={`./assets/img/${project ? project[_id].name + i : null}.png`} alt="Vertigo-screen" />);
+        }
+        return images;
+      }
+  }
+
+  checkIfResponsive(project, _id) {
+    if(project) {
+      if(project[_id].responsive == true) {
+        return
+        <section className="project-responsive">
+              <img className="project-responsive__image" src={`./assets/img/${project ? project[_id].name : null}responsive.png`} alt="Vertigo" />
+        </section>
+      }
+    }
   }
 
   render() {
@@ -129,7 +158,9 @@ export default class WorkDetail extends Component {
                 </div>
             </div>
             <div className="content-summary__image">
-              <img src="./assets/img/vertigo.png" alt="Vertigo" />
+              <div className="circles-animation"></div>
+
+              <img className="content-summary__image-style" src={`./assets/img/${project ? project[_id].name : null}.png`} alt="Vertigo" />
             </div>
           </section>
         </section>
@@ -146,6 +177,7 @@ export default class WorkDetail extends Component {
                   project ? project[_id].skills : null
                 }
               </p>
+              <p>live version</p>
             </article>
             <article className="target-info">
               <div></div>
@@ -163,6 +195,13 @@ export default class WorkDetail extends Component {
             </article>
           </article>
         </section>
+
+        <section className="project-screens">
+          <div className="project-screens__container">
+              {this.returnScreens(project, _id)}
+          </div>
+        </section>
+
         <section className="project-fonts">
           <article className="project-fonts__big">
             <article>
@@ -180,12 +219,14 @@ export default class WorkDetail extends Component {
             <p className={project ? project[_id].fonts.name + "body" : null}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </article>
         </section>
-
+        {
+          this.checkIfResponsive(project, _id)
+        }
         <section className="project-next">
           <Link to={"/workdetail/" + parseInt(_id + 1)}>
           <p>
             {/* <div className="animation-next" onMouseOver={this.onHover.bind(this)} onMouseOut={this.onOut.bind(this)} ></div> */}
-            <div className="animation-text">Next Project</div>
+            Next Project
           </p>
         </Link>
         </section>
