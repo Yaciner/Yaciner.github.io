@@ -29,13 +29,6 @@ export default class WorkDetail extends Component {
 
         }).catch((e => this.setState({ error: e })));
     }
-    // bodymovin.loadAnimation({
-    //    container: document.querySelector(`.circles-animation`),
-    //    renderer: `svg`,
-    //    loop: false,
-    //    autoplay: true,
-    //    path: `../assets/data/circles.json`
-    //  });
   }
 
   onHover() {

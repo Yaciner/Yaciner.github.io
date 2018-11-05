@@ -37,6 +37,7 @@
     "lethargy": "^1.0.4",
     "lottie-web": "^5.2.1",
     "ngrok": "^3.1.0",
+    "particles.js": "^2.0.0",
     "postcss": "^6.0.23",
     "postcss-color-function": "^4.0.1",
     "postcss-cssnext": "^3.0.2",

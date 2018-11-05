@@ -8,7 +8,7 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   /* overflow: visible; */
-  /* cursor: none !important; */
+  cursor: none !important;
   font-smoothing: antialiased;
   /* pointer-events: none; */
 }

@@ -61,7 +61,6 @@
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
-  z-index: 999;
 }
 
 .page-controls__work div {
@@ -71,6 +70,7 @@
 
 .page-controls__work p {
   padding: 1rem;
+  z-index: 70;
 }
 
 .page-controls__about {
@@ -89,6 +89,7 @@
 
 .page-controls__about p {
   padding: 1rem;
+  z-index: 70;
 }
 
 .page-controls__empty {
@@ -100,4 +101,11 @@
 
 .page-controls__work_text a {
   padding: 2rem;
+}
+
+.particles {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
 }

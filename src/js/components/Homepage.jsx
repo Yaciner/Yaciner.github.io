@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Mouse from '../lib/mouse';
 import Velocity from 'velocity-animate';
 import 'velocity-animate/velocity.ui';
+import 'particles.js/particles';
+const particlesJS = window.particlesJS;
 
 
 // const Homepage = () => {
@@ -13,6 +15,12 @@ componentDidMount() {
   document.querySelector(`.circle-mouse`).style.fill = `white`;
   document.querySelector(`.page-controls__work_text`).addEventListener(`mouseenter`, this.handleMouseEnter);
   document.querySelector(`.page-controls__work_text`).addEventListener(`mouseleave`, this.handleMouseOut);
+  document.querySelector(`.page-controls__about_text`).addEventListener(`mouseenter`, this.handleMouseEnter);
+  document.querySelector(`.page-controls__about_text`).addEventListener(`mouseleave`, this.handleMouseOut);
+
+    particlesJS.load('particles-js', 'assets/data/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
 }
 
 handleMouseEnter() {
@@ -39,6 +47,7 @@ handleMouseOut() {
     return (
       <div className="home">
       <div><p className="status"></p></div>
+      <div class="particles" id="particles-js"></div>
       <header>
         <nav>
           <div className="name">
@@ -59,7 +68,9 @@ handleMouseOut() {
               <div className="page-controls__work_line"></div>
             </div>
             <div className="page-controls__about">
-              <Link to='/about'><p>about</p></Link>
+            <p className="page-controls__about_text">
+              <Link to='/about'>about</Link>
+            </p>
               <div></div>
             </div>
           </div>
