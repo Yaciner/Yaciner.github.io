@@ -3,6 +3,7 @@
 @import 'layout';
 @import 'page-home';
 @import 'page-work';
+@import 'about';
 
 html {
   box-sizing: border-box;

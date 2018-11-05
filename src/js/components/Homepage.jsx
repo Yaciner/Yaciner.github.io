@@ -4,6 +4,7 @@ import Mouse from '../lib/mouse';
 import Velocity from 'velocity-animate';
 import 'velocity-animate/velocity.ui';
 import 'particles.js/particles';
+import Typed from 'typed.js';
 const particlesJS = window.particlesJS;
 
 
@@ -21,7 +22,19 @@ componentDidMount() {
     particlesJS.load('particles-js', 'assets/data/particles.json', function() {
     console.log('callback - particles.js config loaded');
   });
+  this.animateText();
 }
+
+animateText() {
+  let typed2 = new Typed('.page-home__subtitle', {
+  strings: [`I'm currently looking for an internship.`, `My name is Yacine Redjala.`, `I'm a student located in Belgium.`],
+  typeSpeed: 20,
+  backSpeed: 0,
+  smartBackspace: true,
+  fadeOut: true,
+  loop: true
+});
+ };
 
 handleMouseEnter() {
   let $circle = document.querySelector(`.circle-mouse`);
@@ -47,11 +60,11 @@ handleMouseOut() {
     return (
       <div className="home">
       <div><p className="status"></p></div>
-      <div class="particles" id="particles-js"></div>
+      <div className="particles" id="particles-js"></div>
       <header>
         <nav>
           <div className="name">
-            <span>Yacine.</span>
+            <span><Link to='/'>Yacine.</Link></span>
           </div>
         </nav>
       </header>
@@ -76,8 +89,9 @@ handleMouseOut() {
           </div>
 
           <h1 className="page-home__title">
-            I'm a digital designer and developer<br></br>
-            <span className="page-home__subtitle">currently looking for an internship</span>
+          I'm a digital Design and Developer
+          <br></br>
+            <span className="page-home__subtitle">My name is Yacine Redjala.</span>
           </h1>
           <div className="anim"></div>
         </section>

@@ -187,7 +187,7 @@ class Work extends Component {
         <header>
           <nav>
             <div className="name">
-              <span>Yacine.</span>
+              <span><Link to='/'>Yacine.</Link></span>
             </div>
           </nav>
         </header>

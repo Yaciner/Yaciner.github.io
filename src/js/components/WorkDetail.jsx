@@ -12,7 +12,6 @@ export default class WorkDetail extends Component {
   }
 
   componentDidMount() {
-    // document.querySelector(`.circle-mouse`).style.fill = `black`;
     if (!this.state.project) {
       fetch('./assets/data/projectdata.json', {
         headers : {
@@ -100,7 +99,7 @@ export default class WorkDetail extends Component {
     if (!project) return <h1>loading</h1>
 
     return (
-      <div className="home">
+      <div className="detail">
       <div><p className="status"></p></div>
       <header>
         <nav>

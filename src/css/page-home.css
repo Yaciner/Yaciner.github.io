@@ -9,6 +9,10 @@
   background-attachment: fixed;
 }
 
+.home {
+  background-color: var(--color-black);
+}
+
 .page-home__title {
   font-family: 'PlayfairDisplay Regular';
   color: var(--color-white);
@@ -26,6 +30,10 @@
   font-size: 2rem;
   color: var(--color-gray);
   font-family: 'Roboto Light';
+}
+
+.page-controls__about_text a {
+  padding: 3rem;
 }
 
 .status {
