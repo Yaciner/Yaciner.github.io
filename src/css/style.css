@@ -8,8 +8,9 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   /* overflow: visible; */
-  cursor: none !important;
+  /* cursor: none !important; */
   font-smoothing: antialiased;
+  /* pointer-events: none; */
 }
 
 *, *::before, *::after { /* stylelint-disable-line */
@@ -30,4 +31,8 @@ svg {
   width: 100vw;
   height: 100vh;
   z-index: 40;
+}
+
+.circle-mouse {
+  transform: translateY(0);
 }

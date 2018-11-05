@@ -10,7 +10,7 @@ export default class WorkDetail extends Component {
   }
 
   componentDidMount() {
-    document.querySelector(`.circle-mouse`).style.fill = `black`;
+    // document.querySelector(`.circle-mouse`).style.fill = `black`;
     if (!this.state.project) {
       fetch('./assets/data/projectdata.json', {
         headers : {
@@ -158,8 +158,7 @@ export default class WorkDetail extends Component {
                 </div>
             </div>
             <div className="content-summary__image">
-              <div className="circles-animation"></div>
-
+              // <div className="circles-animation"></div>
               <img className="content-summary__image-style" src={`./assets/img/${project ? project[_id].name : null}.png`} alt="Vertigo" />
             </div>
           </section>

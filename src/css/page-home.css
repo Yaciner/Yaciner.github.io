@@ -54,12 +54,14 @@
 }
 
 .page-controls__work {
+  position: absolute;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
   align-items: center;
+  z-index: 999;
 }
 
 .page-controls__work div {
@@ -94,4 +96,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.page-controls__work_text a {
+  padding: 2rem;
 }

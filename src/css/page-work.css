@@ -106,19 +106,15 @@
 .content-summary {
   position: relative;
   width: 50rem;
-  margin-top: 5rem;
+  margin-top: 15rem;
 }
 
 .content-summary__text {
   font-family: 'Roboto Light';
-  font-size: 1.7rem;
+  font-size: 2.2rem;
   color: var(--color-gray);
   line-height: 160%;
   z-index: 3;
-}
-
-.content-summary__image {
-  background-color: none;
 }
 
 .content-summary__image img {
@@ -150,6 +146,8 @@
   flex-wrap: nowrap;
   width: 30vw;
   margin-top: 10rem;
+  align-self: center;
+
 }
 
 .content-info__body {
@@ -189,14 +187,14 @@
 }
 
 .target-title__skills {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-family: 'Roboto Regular';
   text-transform: uppercase;
   padding-top: 1.4rem;
 }
 
 .target-info {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-family: 'Roboto Light';
   width: 40vw;
   line-height: 125%;
@@ -304,10 +302,11 @@
 }
 
 .content-summary__image-style {
-  margin-left: 60rem;
-  margin-top: -10rem;
-  z-index: 44;
-  display: run-in;
+
+}
+
+.content-summary__image {
+  align-self: flex-end;
 }
 
 .project-screens__container {

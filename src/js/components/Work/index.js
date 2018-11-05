@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import {workPage} from '../../lib/animateElements';
 import bodymovin from 'lottie-web';
+import Velocity from 'velocity-animate';
+import 'velocity-animate/velocity.ui';
+import Mouse from '../../lib/mouse';
 // let scrollPos = 0;
 let supportsWheel = !1;
 let animEnCours = !1
@@ -24,7 +27,34 @@ class Work extends Component {
     if (timeOut) clearTimeout(timeOut);
   }
 
+  handleMouseEnter() {
+    console.log('in');
+    let $circle = document.querySelector(`.circle-mouse`);
+
+    Velocity($circle, {marginTop: `30px`} , {loop:  true}, {easing: `ease-out`});
+    $circle.style.fill = 'white';
+    $circle.style.stroke = '#3d72a4';
+    $circle.style.strokeWidth = 3;
+  }
+
+  handleMouseOut() {
+    let $circle = document.querySelector(`.circle-mouse`);
+    // let resetvalue = $circle.style.transform.match(/\d+/g).map(Number);
+    Velocity($circle, `stop`);
+    $circle.style.fill = 'black';
+    $circle.style.stroke = 'none';
+    $circle.style.strokeWidth = `none`;
+    $circle.style.marginTop = null;
+    // console.log()
+    // $circle.style.transform = `translateY(-${resetvalue[0] + '.' + resetvalue[1]}px);`
+  }
+
   componentDidMount() {
+
+    document.querySelector(`.circle-mouse`).style.fill = `black`;
+    // document.querySelector(`.work-frame__button`).addEventListener(`mouseenter`, this.handleMouseEnter);
+    // document.querySelector(`.work-frame__button`).addEventListener(`mouseleave`, this.handleMouseOut);
+    Mouse();
 
     fetch('./assets/data/projectdata.json', {
       headers : {
@@ -37,7 +67,6 @@ class Work extends Component {
       .then(data => this.setState({data}));
 
     workPage();
-    document.querySelector(`.content-summary__image-style`).style.transform = 'none';
     bodymovin.loadAnimation({
        container: document.querySelector(`.drawline`),
        renderer: `svg`,
@@ -83,7 +112,6 @@ class Work extends Component {
       if (this.state.case + 1 <= this.state.data.length - 1) {
         this.setState({ case: this.state.case + 1 });
         workPage();
-        document.querySelector(`.content-summary__image-style`).style.transform = 'none';
       }
     }
   }
@@ -92,7 +120,6 @@ class Work extends Component {
     if (this.state.case - 1 >= 0) {
       this.setState({case: this.state.case - 1});
       workPage();
-      document.querySelector(`.content-summary__image-style`).style.transform = 'none';
     }
   }
 
@@ -114,14 +141,12 @@ class Work extends Component {
           if (this.state.case + 1 <= this.state.data.length - 1) {
             this.setState({ case: this.state.case + 1 });
             workPage();
-            document.querySelector(`.content-summary__image-style`).style.transform = 'none';
           }
         }
       } else {
         if (this.state.case - 1 >= 0) {
           this.setState({case: this.state.case - 1});
           workPage();
-          document.querySelector(`.content-summary__image-style`).style.transform = 'none';
         }
       }
 
@@ -211,6 +236,8 @@ class Work extends Component {
               </div>
             </section>
             <section className="work-frame">
+            <svg className="circle-mouse">
+            </svg>
               <div className="work-frame__indicator">
                 <p className="work-frame__indicator-p">
                   <span className="current">

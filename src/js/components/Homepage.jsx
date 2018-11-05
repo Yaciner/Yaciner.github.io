@@ -1,30 +1,39 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-// import animateElements from '../lib/animateElements';
+import Mouse from '../lib/mouse';
+import Velocity from 'velocity-animate';
+import 'velocity-animate/velocity.ui';
+
 
 // const Homepage = () => {
-let $el;
 class Homepage extends Component {
 
 componentDidMount() {
-  // this.menu();
+  Mouse();
   document.querySelector(`.circle-mouse`).style.fill = `white`;
+  document.querySelector(`.page-controls__work_text`).addEventListener(`mouseenter`, this.handleMouseEnter);
+  document.querySelector(`.page-controls__work_text`).addEventListener(`mouseleave`, this.handleMouseOut);
 }
 
-// menu = () => {
-//   $el =  document.querySelector(`.page-controls__work_item`);
-//   $el.addEventListener('mouseover', this.step);
-// }
-//
-//   step = () => {
-//     requestAnimationFrame(this.step);
-//     this.draw();
-//   }
-//
-//   draw = () => {
-//     console.log('drawing');
-//     console.log($el.style.top);
-//   }
+handleMouseEnter() {
+  let $circle = document.querySelector(`.circle-mouse`);
+  Velocity($circle, {marginTop: `30px`} , {loop:  true}, {easing: `ease-out`});
+  $circle.style.fill = 'black';
+  $circle.style.stroke = '#3d72a4';
+  $circle.style.strokeWidth = 3;
+}
+
+handleMouseOut() {
+  let $circle = document.querySelector(`.circle-mouse`);
+  // let resetvalue = $circle.style.transform.match(/\d+/g).map(Number);
+  Velocity($circle, `stop`);
+  $circle.style.fill = 'white';
+  $circle.style.stroke = 'none';
+  $circle.style.strokeWidth = `none`;
+  $circle.style.marginTop = null;
+  // console.log()
+  // $circle.style.transform = `translateY(-${resetvalue[0] + '.' + resetvalue[1]}px);`
+}
 
   render() {
     return (
@@ -38,6 +47,8 @@ componentDidMount() {
         </nav>
       </header>
       <main>
+      <svg className="circle-mouse">
+      </svg>
         <section className="page-home active" id="page-home">
           <div className="page-controls">
             <div className="page-controls__empty">
@@ -52,6 +63,7 @@ componentDidMount() {
               <div></div>
             </div>
           </div>
+
           <h1 className="page-home__title">
             I'm a digital designer and developer<br></br>
             <span className="page-home__subtitle">currently looking for an internship</span>
