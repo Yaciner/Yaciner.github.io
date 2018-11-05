@@ -29,14 +29,13 @@ export default class WorkDetail extends Component {
 
         }).catch((e => this.setState({ error: e })));
     }
-    bodymovin.loadAnimation({
-       container: document.querySelector(`.circles-animation`),
-       renderer: `svg`,
-       loop: false,
-       autoplay: true,
-       path: `../assets/data/circles.json`
-     });
-
+    // bodymovin.loadAnimation({
+    //    container: document.querySelector(`.circles-animation`),
+    //    renderer: `svg`,
+    //    loop: false,
+    //    autoplay: true,
+    //    path: `../assets/data/circles.json`
+    //  });
   }
 
   onHover() {
@@ -50,31 +49,32 @@ export default class WorkDetail extends Component {
 
   }
 
-  animateMouse() {
-    let $mouse = document.querySelector(`.scroll-mouse`);
-    Velocity($mouse, {translateY: `30px`} , {loop:  true}, {easing: `ease-out`});
-  }
+  // animateMouse() {
+  //   let $mouse = document.querySelector(`.scroll-mouse`);
+  //   Velocity($mouse, {translateY: `30px`} , {loop:  true}, {easing: `ease-out`});
+  // }
 
   onOut() {
     console.log('mouse out');
     called = false;
   }
-
-  animate() {
-    bodymovin.loadAnimation({
-       container: document.querySelector(`.animation-next`),
-       renderer: `svg`,
-       loop: false,
-       autoplay: true,
-       path: `../assets/data/stroke.json`
-     });
-  }
+  //
+  // animate() {
+  //   bodymovin.loadAnimation({
+  //      container: document.querySelector(`.animation-next`),
+  //      renderer: `svg`,
+  //      loop: false,
+  //      autoplay: true,
+  //      path: `../assets/data/stroke.json`
+  //    });
+  // }
 
   returnScreens(project, _id) {
       let images = [];
       if(project) {
         for(let i = 0; i < project[_id].screens; i++ ) {
-           images.push(<img className="project-screens__image" src={`./assets/img/${project ? project[_id].name + i : null}.png`} alt="Vertigo-screen" />);
+          console.log(project[_id].screens);
+           images.push(<img className="project-screens__image" src={`./assets/img/${project ? project[_id].name + i : null}.png`} alt="screens" />);
         }
         return images;
       }
@@ -83,12 +83,20 @@ export default class WorkDetail extends Component {
   checkIfResponsive(project, _id) {
     if(project) {
       if(project[_id].responsive == true) {
-        return
-        <section className="project-responsive">
-              <img className="project-responsive__image" src={`./assets/img/${project ? project[_id].name : null}responsive.png`} alt="Vertigo" />
-        </section>
+        console.log('yes its responsive')
+        return (<section className="project-responsive">
+            <img className="project-responsive__image" src={`./assets/img/${project ? project[_id].name : null}responsive.png`} alt="responsive" />
+            <article>
+              <header>Responsive.</header>
+              <p>{project ? project[_id].responsiveinfo : null}</p>
+            </article>
+        </section>);
       }
     }
+  }
+
+  buildMouse() {
+    document.querySelector(`.circle-mouse`).style.fill = `black`;
   }
 
   render() {
@@ -179,9 +187,7 @@ export default class WorkDetail extends Component {
         </section>
         <div className="scroll-mouse__container">
           <img className="scroll-mouse" src='./assets/svg/mouse.svg' alt="mouse" />
-          {
-            this.animateMouse()
-          }
+
         </div>
         <section className="project-information">
           <article className="project-information__target">
@@ -243,7 +249,15 @@ export default class WorkDetail extends Component {
         }
         <section className="project-next">
           <Link to={"/workdetail/" + parseInt(_id + 1)}>
-          <p>
+          <p className="project-next__p">
+            {/* <div className="animation-next" onMouseOver={this.onHover.bind(this)} onMouseOut={this.onOut.bind(this)} ></div> */}
+            Next Project
+          </p>
+        </Link>
+        </section>
+        <section className="project-next">
+          <Link to={"/workdetail/" + parseInt(_id + 1)}>
+          <p className="project-next__p">
             {/* <div className="animation-next" onMouseOver={this.onHover.bind(this)} onMouseOut={this.onOut.bind(this)} ></div> */}
             Next Project
           </p>

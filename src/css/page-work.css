@@ -40,7 +40,7 @@
   align-items: center;
   font-family: 'PlayfairDisplay Regular';
   font-size: 1.8rem;
-  z-index: 999;
+  z-index: 99;
 }
 
 .work-frame__button:hover {
@@ -59,8 +59,50 @@
   justify-content: center;
   align-items: center;
   background-color: var(--color-white);
-  left: -2vw;
+  left: -1.6vw;
   margin-top: -36vh;
+  z-index: 102;
+}
+
+/* ul li {
+  color:white;
+} */
+
+.work-frame__indicator-p_active {
+  padding-top: 1rem;
+}
+
+.work-frame__indicator-p a {
+  position: absolute;
+}
+
+.work-frame__indicator-p_active span {
+  color: white;
+}
+
+.overlay {
+  position: fixed;
+  background-color: black;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, height .35s;
+  overflow: hidden;
+}
+
+.active {
+  visibility: visible;
+  height: 100vh;
+  opacity: 1;
+  z-index: 100;
+}
+
+.work-frame__indicator:hover {
+  color: white;
+  background-color: black;
 }
 
 .work-frame__indicator-p {
@@ -159,11 +201,11 @@
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 30vw;
+  width: 50vw;
   margin: 0 auto;
   align-items: center;
-  padding-top: 6rem;
-  padding-right: 6rem;
+  padding-top: 9rem;
+  padding-right: 9rem;
   align-self: center;
   top: 100px;
   height: 40%;
@@ -175,13 +217,13 @@
 }
 
 .content-info__body {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-family: 'Roboto Thin';
   text-align: center;
 }
 
 .content-info__title {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-family: 'PlayfairDisplay Bold';
   text-align: center;
   padding: 1rem;
@@ -275,7 +317,7 @@
 .ProximaNovahead {
   text-transform: capitalize;
   font-family: 'ProximaNova Bold';
-  font-size: 3.6rem;
+  font-size: 4rem;
   padding-bottom: 1rem;
 }
 
@@ -358,4 +400,43 @@
 .scroll-mouse {
   width: 2rem;
   margin: 0 auto;
+}
+.project-next__p:hover {
+  color:var(--color-blue);
+}
+
+@keyframes strikethrough {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+.project-responsive {
+  width: 60vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-responsive__image {
+  width: 30%;
+  height: 30%;
+  align-self: center;
+  margin-top: 5rem
+}
+
+.project-responsive header {
+  font-family: 'PTSerif Bold';
+  font-size: 3rem;
+  padding: 2rem 0;
+}
+
+.project-responsive p {
+  font-family: 'Roboto Light';
+  font-size: 2rem;
+  padding-bottom: 5rem;
 }

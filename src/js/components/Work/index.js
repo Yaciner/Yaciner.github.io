@@ -12,7 +12,7 @@ let delta = 0;
 let current = 0;
 let sens = !0;
 let quotient = -1;
-
+let navigationActive = false;
 let timeOut = null;
 
 class Work extends Component {
@@ -91,10 +91,10 @@ class Work extends Component {
       if(keyName==='ArrowUp') this.keyUp()
     })
 
-
     const selectedOption = localStorage.getItem('currentCase') || 0;
     if (selectedOption !== 'NaN') this.setState({case: parseInt(selectedOption) })
     document.querySelector(`.name`).style.color = '#3B3B3B';
+    document.querySelector(`.work-frame__indicator`).addEventListener(`click`, this.navigationClickedActive);
   };
 
   componentWillUnmount() {
@@ -160,6 +160,21 @@ class Work extends Component {
     return response;
 	};
 
+  navigationClickedActive() {
+    navigationActive = true;
+    console.log(navigationActive);
+    document.querySelector(`.overlay`).classList.add(`active`);
+    var para = document.createElement("a");
+    var node = document.createTextNode("X");
+    para.appendChild(node);
+    var element = document.querySelector(".work-frame__indicator-p");
+    element.appendChild(para);
+    document.querySelector(`.current`).style.visibility = "hidden";
+    document.querySelector(`.slash`).style.visibility = "hidden";
+    document.querySelector(`.total`).style.visibility = "hidden";
+    document.querySelector(`.work-frame__indicator-p`).classList.add(`work-frame__indicator-p_active`);
+  }
+
   render() {
     let project = this.state.data;
     if (this.state.scrolled) timeOut = setTimeout(() => this.setState({ scrolled: false }), 2000);
@@ -177,6 +192,16 @@ class Work extends Component {
           </nav>
         </header>
         <main>
+        <div className="overlay" >
+          <nav className="overlay-menu">
+            <ul>
+              <li ><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Work</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
         <svg className="circle-mouse">
         </svg>
           <section className="page-work" id="page-work">
@@ -264,7 +289,6 @@ class Work extends Component {
                   {`/request/${_id}`} */}
                 </p>
               </div>
-
             </section>
           </section>
         </main>

@@ -18,7 +18,8 @@
     },
     "site": "http://student.howest.be/yacine.redjala/20172018/ma4/vertigo/",
     "screens": 10,
-    "responsive": true
+    "responsive": true,
+    "responsiveinfo": "Part of the assignment was to make sure, it was responsive. We used mediaqueries in order to do so."
   },
   {
     "name": "babeleir",
@@ -36,41 +37,9 @@
       "name": "ProximaNova",
       "heading": "Proxima Nova Alt - Bold",
       "body": "Proxima Nova Alt - Regular"
-    }
-  },  {
-      "name": "vertigo",
-      "role": "Design Development",
-      "agency": "Devine (Vertigo)",
-      "summary": "In this assignment we were asked to make a tribute to Christopher Nolan’s best movies.",
-      "year": "2017",
-      "maintitle": "Tribute to Christopher Nolan",
-      "skills": "Web / Responsive / ux",
-      "target": {
-          "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
-          "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
-        },
-      "fonts": {
-        "name": "ProximaNova",
-        "heading": "Proxima Nova Alt - Bold",
-        "body": "Proxima Nova Alt - Regular"
-      }
-    },  {
-        "name": "vertigo",
-        "role": "Design Development",
-        "agency": "Devine (Vertigo)",
-        "summary": "In this assignment we were asked to make a tribute to Christopher Nolan’s best movies.",
-        "year": "2017",
-        "maintitle": "Tribute to Christopher Nolan",
-        "skills": "Web / Responsive / ux",
-        "target": {
-            "one": "The aim of the project was to collect information about Christopher Nolans way of thinking in his movies.",
-            "two": "This is a storytelling one pager, with chosen movies we figured would fit for this assignment."
-          },
-        "fonts": {
-          "name": "ProximaNova",
-          "heading": "Proxima Nova Alt - Bold",
-          "body": "Proxima Nova Alt - Regular"
-        }
-      }
-
+    },
+    "site": "http://student.howest.be/yacine.redjala/20172018/ma4/vertigo/",
+    "screens": 5,
+    "responsive": false
+  }
 ]
