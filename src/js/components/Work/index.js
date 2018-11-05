@@ -50,10 +50,9 @@ class Work extends Component {
   }
 
   componentDidMount() {
-
     document.querySelector(`.circle-mouse`).style.fill = `black`;
-    // document.querySelector(`.work-frame__button`).addEventListener(`mouseenter`, this.handleMouseEnter);
-    // document.querySelector(`.work-frame__button`).addEventListener(`mouseleave`, this.handleMouseOut);
+    document.querySelector(`.work-frame__button`).addEventListener(`mouseenter`, this.handleMouseEnter);
+    document.querySelector(`.work-frame__button`).addEventListener(`mouseleave`, this.handleMouseOut);
     Mouse();
 
     fetch('./assets/data/projectdata.json', {
@@ -178,25 +177,39 @@ class Work extends Component {
           </nav>
         </header>
         <main>
+        <svg className="circle-mouse">
+        </svg>
           <section className="page-work" id="page-work">
-            <section className="page-work__content">
-              <div className="content-title__frame">
-                <h1 className="content-title">
-                  {
-                      project ? project[this.state.case].name : null
-                    }
-                </h1>
-                <div className="drawline">
 
+            <section className="page-work__content">
+              <section className="content_header">
+                <div className="content_header__left">
+                  <div className="content-title__container">
+                      <h1 className="content-title">
+                        {
+                          project ? project[this.state.case].name : null
+                        }
+                      </h1>
+                      <div className="drawline">
+
+                      </div>
+                  </div>
+                  <div className="content-summary">
+                      <p className="content-summary__text">
+                          {
+                            project ? project[this.state.case].summary : null
+                          }
+                      </p>
+                    </div>
                 </div>
-              </div>
-              <div className="content-summary">
-                <p className="content-summary__text">
-                  {
-                      project ? project[this.state.case].summary : null
-                    }
-                </p>
-              </div>
+                <div className="content_header__right">
+                  <div className="content-summary__image">
+                   <img className="content-summary__image-style" src={`./assets/img/${project ? project[this.state.case].name : null}.png`} alt="Vertigo" />
+                 </div>
+                </div>
+              </section>
+
+
               <div className="content-info">
                 <div className="content-info__role">
                   <p className="content-info__title">
@@ -205,7 +218,7 @@ class Work extends Component {
                   <p className="content-info__body">
                     {
                         project ? project[this.state.case].role : null
-                      }
+                    }
                   </p>
                 </div>
                 <div className="content-info__agency">
@@ -214,8 +227,8 @@ class Work extends Component {
                   </p>
                   <p className="content-info__body">
                     {
-                        project ? project[this.state.case].agency : null
-                      }
+                      project ? project[this.state.case].agency : null
+                    }
                   </p>
                 </div>
                   <div className="content-info__year">
@@ -224,20 +237,13 @@ class Work extends Component {
                     </p>
                     <p className="content-info__body">
                       {
-                          project ? project[this.state.case].year : null
-                        }
+                        project ? project[this.state.case].year : null
+                      }
                     </p>
                   </div>
               </div>
-              <div className="content-summary__image">
-                <div className="circles-animation"></div>
-
-                <img className="content-summary__image-style" src={`./assets/img/${project ? project[this.state.case].name : null}.png`} alt="Vertigo" />
-              </div>
             </section>
             <section className="work-frame">
-            <svg className="circle-mouse">
-            </svg>
               <div className="work-frame__indicator">
                 <p className="work-frame__indicator-p">
                   <span className="current">
@@ -258,6 +264,7 @@ class Work extends Component {
                   {`/request/${_id}`} */}
                 </p>
               </div>
+
             </section>
           </section>
         </main>

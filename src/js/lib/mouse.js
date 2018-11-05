@@ -13,7 +13,6 @@ const handleMouseMove = e => {
 const move = $circle => {
   const oldX = $circle.getAttribute('cx');
   const oldY = $circle.getAttribute('cy');
-
   x += (mouseX - oldX) / 5;
   y += (mouseY - oldY) / 5;
 
@@ -38,12 +37,7 @@ const render = () => {
   return $circle;
 }
 
-const handleMouseOver = () => {
-  console.log('thovering menuitem');
-}
-
 const resetAnimation = () => {
-  console.log('okzay');
   cancelAnimationFrame();
 }
 

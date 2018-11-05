@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import bodymovin from 'lottie-web';
+import Velocity from 'velocity-animate';
+import 'velocity-animate/velocity.ui';
 let called = false;
 
 export default class WorkDetail extends Component {
@@ -34,6 +36,7 @@ export default class WorkDetail extends Component {
        autoplay: true,
        path: `../assets/data/circles.json`
      });
+
   }
 
   onHover() {
@@ -45,6 +48,11 @@ export default class WorkDetail extends Component {
       this.onOut();
     }
 
+  }
+
+  animateMouse() {
+    let $mouse = document.querySelector(`.scroll-mouse`);
+    Velocity($mouse, {translateY: `30px`} , {loop:  true}, {easing: `ease-out`});
   }
 
   onOut() {
@@ -108,23 +116,33 @@ export default class WorkDetail extends Component {
              <p>Back to cases</p>
 
             </Link>
-            <div className="content-title__frame">
-              <h1 className="content-title">
-                {
-                    project ? project[_id].name : null
-                  }
-              </h1>
-              <div className="drawline">
 
+            <section className="content_header">
+              <div className="content_header__left">
+                <div className="content-title__container">
+                    <h1 className="content-title">
+                      {
+                        project ? project[_id].name : null
+                      }
+                    </h1>
+                    <div className="drawline">
+
+                    </div>
+                </div>
+                <div className="content-summary">
+                    <p className="content-summary__text">
+                        {
+                          project ? project[_id].summary : null
+                        }
+                    </p>
+                  </div>
               </div>
-            </div>
-            <div className="content-summary">
-              <p className="content-summary__text">
-                {
-                    project ? project[_id].summary : null
-                  }
-              </p>
-            </div>
+              <div className="content_header__right">
+                <div className="content-summary__image">
+                 <img className="content-summary__image-style" src={`./assets/img/${project ? project[_id].name : null}.png`} alt="Vertigo" />
+               </div>
+              </div>
+            </section>
             <div className="content-info">
               <div className="content-info__role">
                 <p className="content-info__title">
@@ -133,7 +151,7 @@ export default class WorkDetail extends Component {
                 <p className="content-info__body">
                   {
                       project ? project[_id].role : null
-                    }
+                  }
                 </p>
               </div>
               <div className="content-info__agency">
@@ -142,8 +160,8 @@ export default class WorkDetail extends Component {
                 </p>
                 <p className="content-info__body">
                   {
-                      project ? project[_id].agency : null
-                    }
+                    project ? project[_id].agency : null
+                  }
                 </p>
               </div>
                 <div className="content-info__year">
@@ -152,17 +170,19 @@ export default class WorkDetail extends Component {
                   </p>
                   <p className="content-info__body">
                     {
-                        project ? project[_id].year : null
-                      }
+                      project ? project[_id].year : null
+                    }
                   </p>
                 </div>
             </div>
-            <div className="content-summary__image">
-              // <div className="circles-animation"></div>
-              <img className="content-summary__image-style" src={`./assets/img/${project ? project[_id].name : null}.png`} alt="Vertigo" />
-            </div>
           </section>
         </section>
+        <div className="scroll-mouse__container">
+          <img className="scroll-mouse" src='./assets/svg/mouse.svg' alt="mouse" />
+          {
+            this.animateMouse()
+          }
+        </div>
         <section className="project-information">
           <article className="project-information__target">
             <article className="target-title">
