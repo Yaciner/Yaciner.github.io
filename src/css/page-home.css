@@ -114,6 +114,6 @@
 .particles {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 98vh;
   z-index: 50;
 }

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import Mouse from '../lib/mouse';
-import Velocity from 'velocity-animate';
-import 'velocity-animate/velocity.ui';
+// import Mouse from '../lib/mouse';
+// import Velocity from 'velocity-animate';
+// import 'velocity-animate/velocity.ui';
 import 'particles.js/particles';
 import Typed from 'typed.js';
 const particlesJS = window.particlesJS;
@@ -12,7 +12,7 @@ const particlesJS = window.particlesJS;
 class Homepage extends Component {
 
 componentDidMount() {
-  Mouse();
+  // Mouse();
   document.querySelector(`.circle-mouse`).style.fill = `white`;
   document.querySelector(`.page-controls__work_text`).addEventListener(`mouseenter`, this.handleMouseEnter);
   document.querySelector(`.page-controls__work_text`).addEventListener(`mouseleave`, this.handleMouseOut);
@@ -26,7 +26,7 @@ componentDidMount() {
 }
 
 animateText() {
-  let typed2 = new Typed('.page-home__subtitle', {
+  new Typed('.page-home__subtitle', {
   strings: [`I'm currently looking for an internship.`, `My name is Yacine Redjala.`, `I'm a student located in Belgium.`],
   typeSpeed: 20,
   backSpeed: 0,
@@ -36,25 +36,25 @@ animateText() {
 });
  };
 
-handleMouseEnter() {
-  let $circle = document.querySelector(`.circle-mouse`);
-  Velocity($circle, {marginTop: `30px`} , {loop:  true}, {easing: `ease-out`});
-  $circle.style.fill = 'black';
-  $circle.style.stroke = '#3d72a4';
-  $circle.style.strokeWidth = 3;
-}
+// handleMouseEnter() {
+//   let $circle = document.querySelector(`.circle-mouse`);
+//   Velocity($circle, {marginTop: `30px`} , {loop:  true}, {easing: `ease-out`});
+//   $circle.style.fill = 'black';
+//   $circle.style.stroke = '#3d72a4';
+//   $circle.style.strokeWidth = 3;
+// }
 
-handleMouseOut() {
-  let $circle = document.querySelector(`.circle-mouse`);
-  // let resetvalue = $circle.style.transform.match(/\d+/g).map(Number);
-  Velocity($circle, `stop`);
-  $circle.style.fill = 'white';
-  $circle.style.stroke = 'none';
-  $circle.style.strokeWidth = `none`;
-  $circle.style.marginTop = null;
-  // console.log()
-  // $circle.style.transform = `translateY(-${resetvalue[0] + '.' + resetvalue[1]}px);`
-}
+// handleMouseOut() {
+//   let $circle = document.querySelector(`.circle-mouse`);
+//   // let resetvalue = $circle.style.transform.match(/\d+/g).map(Number);
+//   Velocity($circle, `stop`);
+//   $circle.style.fill = 'white';
+//   $circle.style.stroke = 'none';
+//   $circle.style.strokeWidth = `none`;
+//   $circle.style.marginTop = null;
+//   // console.log()
+//   // $circle.style.transform = `translateY(-${resetvalue[0] + '.' + resetvalue[1]}px);`
+// }
 
   render() {
     return (
@@ -64,7 +64,7 @@ handleMouseOut() {
       <header>
         <nav>
           <div className="name">
-            <span><Link to='/'>Yacine.</Link></span>
+            <span>Yacine.</span>
           </div>
         </nav>
       </header>
@@ -89,7 +89,7 @@ handleMouseOut() {
           </div>
 
           <h1 className="page-home__title">
-          I'm a digital Design and Developer
+          I'm a digital Designer and Developer
           <br></br>
             <span className="page-home__subtitle">My name is Yacine Redjala.</span>
           </h1>

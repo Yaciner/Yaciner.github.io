@@ -2,16 +2,16 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import {workPage} from '../../lib/animateElements';
 import bodymovin from 'lottie-web';
-import Velocity from 'velocity-animate';
-import 'velocity-animate/velocity.ui';
-import Mouse from '../../lib/mouse';
+// import Velocity from 'velocity-animate';
+// import 'velocity-animate/velocity.ui';
+// import Mouse from '../../lib/mouse';
 // let scrollPos = 0;
 let supportsWheel = !1;
-let animEnCours = !1
+// let animEnCours = !1
 let delta = 0;
-let current = 0;
-let sens = !0;
-let quotient = -1;
+// let current = 0;
+// let sens = !0;
+// let quotient = -1;
 let navigationActive = false;
 let timeOut = null;
 
@@ -27,33 +27,33 @@ class Work extends Component {
     if (timeOut) clearTimeout(timeOut);
   }
 
-  handleMouseEnter() {
-    console.log('in');
-    let $circle = document.querySelector(`.circle-mouse`);
+  // handleMouseEnter() {
+  //   console.log('in');
+  //   let $circle = document.querySelector(`.circle-mouse`);
+  //
+  //   Velocity($circle, {marginTop: `30px`} , {loop:  true}, {easing: `ease-out`});
+  //   $circle.style.fill = 'white';
+  //   $circle.style.stroke = '#3d72a4';
+  //   $circle.style.strokeWidth = 3;
+  // }
 
-    Velocity($circle, {marginTop: `30px`} , {loop:  true}, {easing: `ease-out`});
-    $circle.style.fill = 'white';
-    $circle.style.stroke = '#3d72a4';
-    $circle.style.strokeWidth = 3;
-  }
-
-  handleMouseOut() {
-    let $circle = document.querySelector(`.circle-mouse`);
-    // let resetvalue = $circle.style.transform.match(/\d+/g).map(Number);
-    Velocity($circle, `stop`);
-    $circle.style.fill = 'black';
-    $circle.style.stroke = 'none';
-    $circle.style.strokeWidth = `none`;
-    $circle.style.marginTop = null;
-    // console.log()
-    // $circle.style.transform = `translateY(-${resetvalue[0] + '.' + resetvalue[1]}px);`
-  }
+  // handleMouseOut() {
+  //   let $circle = document.querySelector(`.circle-mouse`);
+  //   // let resetvalue = $circle.style.transform.match(/\d+/g).map(Number);
+  //   Velocity($circle, `stop`);
+  //   $circle.style.fill = 'black';
+  //   $circle.style.stroke = 'none';
+  //   $circle.style.strokeWidth = `none`;
+  //   $circle.style.marginTop = null;
+  //   // console.log()
+  //   // $circle.style.transform = `translateY(-${resetvalue[0] + '.' + resetvalue[1]}px);`
+  // }
 
   componentDidMount() {
     document.querySelector(`.circle-mouse`).style.fill = `black`;
     document.querySelector(`.work-frame__button`).addEventListener(`mouseenter`, this.handleMouseEnter);
     document.querySelector(`.work-frame__button`).addEventListener(`mouseleave`, this.handleMouseOut);
-    Mouse();
+    // Mouse();
 
     fetch('./assets/data/projectdata.json', {
       headers : {
@@ -74,17 +74,17 @@ class Work extends Component {
        path: `../assets/data/line.json`
      });
 
-     bodymovin.loadAnimation({
-        container: document.querySelector(`.circles-animation`),
-        renderer: `svg`,
-        loop: false,
-        autoplay: true,
-        path: `../assets/data/circles.json`
-      });
+     // bodymovin.loadAnimation({
+     //    container: document.querySelector(`.circles-animation`),
+     //    renderer: `svg`,
+     //    loop: false,
+     //    autoplay: true,
+     //    path: `../assets/data/circles.json`
+     //  });
     document.querySelector(`.name`).style.color = '#3B3B3B';
-    document.addEventListener("wheel", this.scrollEvent),
-    document.addEventListener("mousewheel", this.scrollEvent),
-    document.addEventListener("DOMMouseScroll", this.scrollEvent),
+    document.addEventListener("wheel", this.scrollEvent, {passive: true}),
+    document.addEventListener("mousewheel", this.scrollEvent, {passive: true}),
+    document.addEventListener("DOMMouseScroll", this.scrollEvent, {passive: true}),
     document.addEventListener('keydown', (event) => {
       const keyName = event.key;
       if(keyName==='ArrowDown') this.keyDown()
@@ -98,9 +98,9 @@ class Work extends Component {
   };
 
   componentWillUnmount() {
-    document.removeEventListener('wheel', this.scrollEvent);
-    document.removeEventListener('mousewheel', this.scrollEvent);
-    document.removeEventListener('DOMMouseScroll', this.scrollEvent);
+    document.removeEventListener('wheel', this.scrollEvent, {passive: true});
+    document.removeEventListener('mousewheel', this.scrollEvent, {passive: true});
+    document.removeEventListener('DOMMouseScroll', this.scrollEvent, {passive: true});
     if (timeOut !== null) clearTimeout(timeOut);
     localStorage.setItem('currentCase', this.state.case);
   };
@@ -175,6 +175,10 @@ class Work extends Component {
     document.querySelector(`.work-frame__indicator-p`).classList.add(`work-frame__indicator-p_active`);
   }
 
+  renderHeaderImage(project) {
+    return (<img className="content-summary__image-style" src={`./assets/img/${project[this.state.case].name}.png`} alt="Vertigo" />)
+  }
+
   render() {
     let project = this.state.data;
     if (this.state.scrolled) timeOut = setTimeout(() => this.setState({ scrolled: false }), 2000);
@@ -229,7 +233,7 @@ class Work extends Component {
                 </div>
                 <div className="content_header__right">
                   <div className="content-summary__image">
-                   <img className="content-summary__image-style" src={`./assets/img/${project ? project[this.state.case].name : null}.png`} alt="Vertigo" />
+                  {project ? this.renderHeaderImage(project) : null}
                  </div>
                 </div>
               </section>

@@ -4,7 +4,7 @@ let mouseX, mouseY;
 let x, y;
 let innerWidth = 50;
 let innerHeight = 50;
-let started = true;
+// let started = true;
 
 const handleMouseMove = e => {
   ({pageX: mouseX, pageY:mouseY} = e);//kortere manier

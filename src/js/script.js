@@ -32,7 +32,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import App from './container/App';
-import mouse from './lib/mouse';
+// import mouse from './lib/mouse';
 
 const init = () => {
   console.log("You can find the code here: http://www.github.com/Yaciner/portfolio");

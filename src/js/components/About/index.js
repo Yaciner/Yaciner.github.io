@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-// import {workPage} from '../../lib/animateElements';
-// import bodymovin from 'lottie-web';
-// import Velocity from 'velocity-animate';
-// import 'velocity-animate/velocity.ui';
-// import Mouse from '../../lib/mouse';
+import 'velocity-animate/velocity.ui';
+import 'particles.js/particles';
 import Typed from 'typed.js';
+const particlesJS = window.particlesJS;
 let animationDone = false;
 
 class About extends Component {
@@ -17,10 +15,17 @@ class About extends Component {
   componentDidMount() {
     document.querySelector(`.page-about`).classList.add(`animation-about`);
     this.animateText();
+    this.startParticles();
+  }
+
+  startParticles () {
+        particlesJS.load('particles-js', 'assets/data/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+      });
   }
 
   animateText() {
-    let typed2 = new Typed('.about-animated__text', {
+    new Typed('.about-animated__text', {
       strings: [`Hi.`, `Nice to meet you.`, `Allow me to introduce myself.`],
       typeSpeed: 30,
       backSpeed: 0,
@@ -29,6 +34,7 @@ class About extends Component {
       loop: false,
       backDelay: 1000
     });
+
     if(animationDone === false) {
       setInterval(() => {
         window.scrollTo(0, window.innerHeight);
@@ -42,6 +48,7 @@ class About extends Component {
   render() {
     return (
       <div className="about">
+      <div className="particles" id="particles-js"></div>
       <header>
         <nav>
           <div className="name">

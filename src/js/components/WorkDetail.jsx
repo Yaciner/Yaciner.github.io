@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import bodymovin from 'lottie-web';
-import Velocity from 'velocity-animate';
-import 'velocity-animate/velocity.ui';
+// import bodymovin from 'lottie-web';
+// import Velocity from 'velocity-animate';
+// import 'velocity-animate/velocity.ui';
+// import Mouse from '../lib/mouse';
 let called = false;
 
 export default class WorkDetail extends Component {
@@ -12,6 +13,9 @@ export default class WorkDetail extends Component {
   }
 
   componentDidMount() {
+
+    // document.addEventListener(`mousemove`, buildMouse);
+
     if (!this.state.project) {
       fetch('./assets/data/projectdata.json', {
         headers : {
@@ -25,9 +29,10 @@ export default class WorkDetail extends Component {
           this.setState({
             project: results
           });
-
         }).catch((e => this.setState({ error: e })));
+        return
     }
+
   }
 
   onHover() {
@@ -63,6 +68,7 @@ export default class WorkDetail extends Component {
 
   returnScreens(project, _id) {
       let images = [];
+
       if(project) {
         for(let i = 0; i < project[_id].screens; i++ ) {
           console.log(project[_id].screens);
@@ -74,8 +80,7 @@ export default class WorkDetail extends Component {
 
   checkIfResponsive(project, _id) {
     if(project) {
-      if(project[_id].responsive == true) {
-        console.log('yes its responsive')
+      if(project[_id].responsive === true) {
         return (<section className="project-responsive">
             <img className="project-responsive__image" src={`./assets/img/${project ? project[_id].name : null}responsive.png`} alt="responsive" />
             <article>
@@ -87,8 +92,25 @@ export default class WorkDetail extends Component {
     }
   }
 
+  thereIsProject(project, _id) {
+    if(project.length - 1 > _id) {
+      return (<section className="project-next">
+        <Link to={"/workdetail/" + parseInt(_id + 1, 10)}>
+        <p className="project-next__p">
+          Next Project
+        </p>
+      </Link>
+      </section>);
+    }
+    else {
+      console.log('there is no next project');
+    }
+  }
+
   buildMouse() {
-    document.querySelector(`.circle-mouse`).style.fill = `black`;
+    // document.querySelector(`.circle-mouse`).style.fill = `black`;
+    // Mouse();
+    // console.log('test');
   }
 
   render() {
@@ -97,7 +119,6 @@ export default class WorkDetail extends Component {
 
     if (error) return <h1>An error occured</h1>
     if (!project) return <h1>loading</h1>
-
     return (
       <div className="detail">
       <div><p className="status"></p></div>
@@ -109,6 +130,8 @@ export default class WorkDetail extends Component {
         </nav>
       </header>
       <main>
+      <svg className="circle-mouse">
+      </svg>
         <section className="page-work" id="page-work">
           <section className="page-work__content">
             <Link className="page-work__back" to="/work">
@@ -239,23 +262,14 @@ export default class WorkDetail extends Component {
         {
           this.checkIfResponsive(project, _id)
         }
-        <section className="project-next">
-          <Link to={"/workdetail/" + parseInt(_id + 1)}>
-          <p className="project-next__p">
-            {/* <div className="animation-next" onMouseOver={this.onHover.bind(this)} onMouseOut={this.onOut.bind(this)} ></div> */}
-            Next Project
-          </p>
-        </Link>
-        </section>
-        <section className="project-next">
-          <Link to={"/workdetail/" + parseInt(_id + 1)}>
-          <p className="project-next__p">
-            {/* <div className="animation-next" onMouseOver={this.onHover.bind(this)} onMouseOut={this.onOut.bind(this)} ></div> */}
-            Next Project
-          </p>
-        </Link>
-        </section>
+
+        {
+          this.thereIsProject(project, _id)
+        }
       </main>
+      {
+        project ? this.buildMouse() : null
+      }
       </div>
     );
   }
