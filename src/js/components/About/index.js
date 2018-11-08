@@ -14,8 +14,9 @@ class About extends Component {
 
   componentDidMount() {
     document.querySelector(`.page-about`).classList.add(`animation-about`);
-    this.animateText();
+    // this.animateText();
     this.startParticles();
+    document.querySelector(`.scroll-mouse`).style.fill = `white`;
   }
 
   startParticles () {
@@ -24,26 +25,26 @@ class About extends Component {
       });
   }
 
-  animateText() {
-    new Typed('.about-animated__text', {
-      strings: [`Hi.`, `Nice to meet you.`, `Allow me to introduce myself.`],
-      typeSpeed: 30,
-      backSpeed: 0,
-      smartBackspace: true,
-      fadeOut: true,
-      loop: false,
-      backDelay: 1000
-    });
-
-    if(animationDone === false) {
-      setInterval(() => {
-        window.scrollTo(0, window.innerHeight);
-        animationDone = true;
-      }, 7000)
-    }
-
-    // window.scrollTo()
-   };
+  // animateText() {
+  //   new Typed('.about-animated__text', {
+  //     strings: [`Hi.`, `Nice to meet you.`, `Allow me to introduce myself.`],
+  //     typeSpeed: 30,
+  //     backSpeed: 0,
+  //     smartBackspace: true,
+  //     fadeOut: true,
+  //     loop: false,
+  //     backDelay: 1000
+  //   });
+  //   //
+  //   // if(animationDone === false) {
+  //   //   setInterval(() => {
+  //   //     window.scrollTo(0, window.innerHeight);
+  //   //     animationDone = true;
+  //   //   }, 7000)
+  //   // }
+  //
+  //   // window.scrollTo()
+  //  };
 
   render() {
     return (
@@ -57,15 +58,19 @@ class About extends Component {
         </nav>
       </header>
       <main>
-      <svg className="circle-mouse">
-      </svg>
         <section className="page-about">
 
         </section>
         <section className="page-about__overlay">
-          <h1 className="about-animated__text"></h1>
+          <h1 className="about-header__text">
+          I’m <span className="bold-colored">Yacine Redjala</span>,<br></br>
+          a devine <span className="bold-colored">student</span> enjoying<br></br>
+          everything related to web.
+          </h1>
         </section>
-
+        <div className="scroll-mouse__container">
+          <img className="scroll-mouse" src='./assets/svg/mouse_debug.svg' alt="mouse" />
+        </div>
         <section className="stuff-about-me">
 
         </section>

@@ -55,17 +55,15 @@
 
 .work-frame__indicator {
   position: absolute;
-  width: 6rem;
+  width: 25rem;
   height: 6rem;
-  border: .1rem solid rgba(220,220,220, .6);
-  transform: rotate(45deg);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-white);
   left: -1.6vw;
-  margin-top: -36vh;
+  margin-top: -2vh;
   z-index: 102;
+  color: var(--color-black-alt);
 }
 
 /* ul li {
@@ -104,17 +102,11 @@
   z-index: 100;
 }
 
-.work-frame__indicator:hover {
-  color: white;
-  background-color: black;
-}
-
 .work-frame__indicator-p {
   width: 100%;
   height: 70%;
-  font-size: 2.6rem;
+  font-size: 5rem;
   font-family: 'PlayfairDisplay Bold';
-  transform: rotate(-45deg);
   display: flex;
   justify-content: center;
   margin-top: -.3rem;
@@ -123,8 +115,9 @@
 
 
 .slash {
-  font-size: 3rem;
   align-self: center;
+  width: 7rem;
+  border-bottom: .3rem solid var(--color-black-alt);
 }
 
 .total {
@@ -399,7 +392,7 @@
 .scroll-mouse__container {
   display: flex;
   justify-content: center;
-  margin-top: -15rem;
+  margin-top: -15vh;
 }
 
 .scroll-mouse {

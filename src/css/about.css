@@ -8,21 +8,15 @@
   background-color: var(--color-black);
   background-image: url(../assets/img/me_smaller.png);
   background-repeat: no-repeat;
-  background-size: 45%;
+  background-size: 80rem;
   background-position: right bottom;
   background-attachment: fixed;
 }
 
-.page-about__overlay {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-}
-
 .about-animated__text {
-  width: 100%;
-  height: 90%;
+  position: relative;
+  width: 100vw;
+  height: 85vh;
   color: white;
   font-size: 6rem;
   text-align: center;
@@ -47,12 +41,34 @@
   background-size: 45%;
   background-position: right bottom;
   background-attachment: fixed; */
-  z-index: -1;
   animation-name: MOVE-BG;
   animation-duration: .6s;
   animation-timing-function:  ease-in-out;
   animation-fill-mode: forwards;
 
+}
+
+.bold-colored {
+  color: var(--color-blue);
+}
+
+.page-about__overlay {
+  width: 50vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  flex-direction: column;
+  align-self: flex-end;
+  top: 0;
+  color: white;
+  font-size: 4rem;
+}
+
+.about-header__text {
+  padding: 15%;
+  line-height: 150%;
 }
 
 @-webkit-keyframes MOVE-BG {

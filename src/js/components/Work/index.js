@@ -12,7 +12,7 @@ let delta = 0;
 // let current = 0;
 // let sens = !0;
 // let quotient = -1;
-let navigationActive = false;
+// let navigationActive = false;
 let timeOut = null;
 
 class Work extends Component {
@@ -50,7 +50,7 @@ class Work extends Component {
   // }
 
   componentDidMount() {
-    document.querySelector(`.circle-mouse`).style.fill = `black`;
+    // document.querySelector(`.circle-mouse`).style.fill = `black`;
     document.querySelector(`.work-frame__button`).addEventListener(`mouseenter`, this.handleMouseEnter);
     document.querySelector(`.work-frame__button`).addEventListener(`mouseleave`, this.handleMouseOut);
     // Mouse();
@@ -160,20 +160,20 @@ class Work extends Component {
     return response;
 	};
 
-  navigationClickedActive() {
-    navigationActive = true;
-    console.log(navigationActive);
-    document.querySelector(`.overlay`).classList.add(`active`);
-    var para = document.createElement("a");
-    var node = document.createTextNode("X");
-    para.appendChild(node);
-    var element = document.querySelector(".work-frame__indicator-p");
-    element.appendChild(para);
-    document.querySelector(`.current`).style.visibility = "hidden";
-    document.querySelector(`.slash`).style.visibility = "hidden";
-    document.querySelector(`.total`).style.visibility = "hidden";
-    document.querySelector(`.work-frame__indicator-p`).classList.add(`work-frame__indicator-p_active`);
-  }
+  // navigationClickedActive() {
+  //   navigationActive = true;
+  //   console.log(navigationActive);
+  //   document.querySelector(`.overlay`).classList.add(`active`);
+  //   var para = document.createElement("a");
+  //   var node = document.createTextNode("X");
+  //   para.appendChild(node);
+  //   var element = document.querySelector(".work-frame__indicator-p");
+  //   element.appendChild(para);
+  //   document.querySelector(`.current`).style.visibility = "hidden";
+  //   document.querySelector(`.slash`).style.visibility = "hidden";
+  //   document.querySelector(`.total`).style.visibility = "hidden";
+  //   document.querySelector(`.work-frame__indicator-p`).classList.add(`work-frame__indicator-p_active`);
+  // }
 
   renderHeaderImage(project) {
     return (<img className="content-summary__image-style" src={`./assets/img/${project[this.state.case].name}.png`} alt="Vertigo" />)
@@ -206,8 +206,6 @@ class Work extends Component {
             </ul>
           </nav>
         </div>
-        <svg className="circle-mouse">
-        </svg>
           <section className="page-work" id="page-work">
 
             <section className="page-work__content">
@@ -279,7 +277,7 @@ class Work extends Component {
                   { this.state.case + 1 }
                   </span>
                   <span className="slash">
-                  /
+
                   </span>
                   <span className="total">
                   { this.state.data ? this.state.data.length : 0 }

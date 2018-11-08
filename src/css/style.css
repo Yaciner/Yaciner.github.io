@@ -4,6 +4,7 @@
 @import 'page-home';
 @import 'page-work';
 @import 'about';
+@import 'mediaqueries';
 
 html {
   box-sizing: border-box;

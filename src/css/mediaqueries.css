@@ -1,0 +1,31 @@
+@media (width <= 1400px) {
+  .content-summary__image img {
+    width: 35vw;
+    margin-top: 17rem;
+    margin-left: 4rem;
+  }
+}
+
+
+@media (width <= 1160px) {
+  .content_header {
+    flex-direction: column;
+  }
+
+  .content-summary {
+    margin-top: 5rem;
+  }
+
+  .content_header {
+    align-self: center;
+    text-align: center;
+  }
+
+  .content-summary__image img {
+    margin-top: 3rem;
+  }
+
+  .content-info {
+    width: 70vw;
+  }
+}

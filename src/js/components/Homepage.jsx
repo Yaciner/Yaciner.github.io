@@ -18,10 +18,12 @@ componentDidMount() {
   document.querySelector(`.page-controls__work_text`).addEventListener(`mouseleave`, this.handleMouseOut);
   document.querySelector(`.page-controls__about_text`).addEventListener(`mouseenter`, this.handleMouseEnter);
   document.querySelector(`.page-controls__about_text`).addEventListener(`mouseleave`, this.handleMouseOut);
-
+  if(this.isMobileDevice() === false) {
     particlesJS.load('particles-js', 'assets/data/particles.json', function() {
     console.log('callback - particles.js config loaded');
   });
+  }
+
   this.animateText();
 }
 
@@ -35,6 +37,10 @@ animateText() {
   loop: true
 });
  };
+
+isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
 
 // handleMouseEnter() {
 //   let $circle = document.querySelector(`.circle-mouse`);
@@ -57,6 +63,7 @@ animateText() {
 // }
 
   render() {
+
     return (
       <div className="home">
       <div><p className="status"></p></div>

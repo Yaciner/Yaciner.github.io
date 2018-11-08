@@ -130,8 +130,6 @@ export default class WorkDetail extends Component {
         </nav>
       </header>
       <main>
-      <svg className="circle-mouse">
-      </svg>
         <section className="page-work" id="page-work">
           <section className="page-work__content">
             <Link className="page-work__back" to="/work">
